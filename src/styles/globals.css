@@ -255,6 +255,24 @@ input, textarea, select {
   .section { padding: 70px 0; }
   .container { padding: 0 16px; }
   .section-title { font-size: 1.8rem; }
+
+  /* Mobile center alignment */
+  .section-title,
+  .section-subtitle,
+  .badge,
+  p {
+    text-align: center;
+  }
+
+  .badge {
+    display: inline-flex;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .divider {
+    margin: 16px auto 0;
+  }
 }
 
 @media (max-width: 480px) {

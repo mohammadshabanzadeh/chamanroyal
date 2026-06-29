@@ -119,7 +119,6 @@ const Navbar = () => {
                 padding: '8px',
                 borderRadius: '10px',
                 cursor: 'pointer',
-                display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
