@@ -80,14 +80,16 @@ const FeaturesSection = () => {
                   alignItems: 'center',
                   justifyContent: 'center',
                   marginBottom: '20px',
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
                 }}>
                   {Icon && <Icon size={24} color="#7ed957" />}
                 </div>
 
-                <h3 className="feature-title" style={{ color: 'var(--text-primary)', fontWeight: 700, fontSize: '1.05rem', marginBottom: '10px' }}>
+                <h3 className="feature-title" style={{ color: 'var(--text-primary)', fontWeight: 700, fontSize: '1.05rem', marginBottom: '10px', textAlign: 'center' }}>
                   {feature.title}
                 </h3>
-                <p className="feature-desc" style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.7 }}>
+                <p className="feature-desc" style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.7, textAlign: 'center' }}>
                   {feature.description}
                 </p>
               </motion.div>
