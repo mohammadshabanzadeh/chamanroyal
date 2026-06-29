@@ -65,7 +65,7 @@ const HeroSection = () => {
       </div>
 
       <div className="container" style={{ position: 'relative', zIndex: 1, padding: '120px 24px 160px' }}>
-        <div style={{ maxWidth: '720px' }}>
+        <div style={{ maxWidth: '720px' }} className="hero-content">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
@@ -106,7 +106,7 @@ const HeroSection = () => {
               marginBottom: '24px',
             }}
           >
-            <span style={{ whiteSpace: 'nowrap' }}>
+            <span className="hero-title-line">
               متخصص چمن مصنوعی{' '}
               <span style={{
                 background: 'linear-gradient(135deg, #7ed957, #2d8a3e)',
@@ -160,6 +160,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.6 }}
+            className="hero-social-proof"
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -249,6 +250,15 @@ const HeroSection = () => {
         @keyframes pulse {
           0%, 100% { opacity: 1; }
           50% { opacity: 0.4; }
+        }
+        .hero-title-line { white-space: nowrap; }
+        @media (max-width: 768px) {
+          .hero-title-line { white-space: normal; }
+          .hero-content { text-align: center; }
+          .hero-content h1 { font-size: 2rem !important; }
+          .hero-content p { margin-left: auto; margin-right: auto; }
+          .hero-content > div[style*="display: flex"] { justify-content: center; }
+          .hero-social-proof { width: 100% !important; justify-content: center; }
         }
       `}</style>
     </section>

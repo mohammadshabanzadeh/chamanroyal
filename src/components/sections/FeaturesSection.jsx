@@ -70,7 +70,7 @@ const FeaturesSection = () => {
                   borderRadius: '0 20px 0 80px',
                 }} />
 
-                <div style={{
+                <div className="feature-icon" style={{
                   width: '56px',
                   height: '56px',
                   borderRadius: '16px',
@@ -84,10 +84,10 @@ const FeaturesSection = () => {
                   {Icon && <Icon size={24} color="#7ed957" />}
                 </div>
 
-                <h3 style={{ color: 'var(--text-primary)', fontWeight: 700, fontSize: '1.05rem', marginBottom: '10px' }}>
+                <h3 className="feature-title" style={{ color: 'var(--text-primary)', fontWeight: 700, fontSize: '1.05rem', marginBottom: '10px' }}>
                   {feature.title}
                 </h3>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.7 }}>
+                <p className="feature-desc" style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.7 }}>
                   {feature.description}
                 </p>
               </motion.div>
@@ -95,6 +95,13 @@ const FeaturesSection = () => {
           })}
         </div>
       </div>
+      <style>{`
+        @media (max-width: 768px) {
+          .feature-icon { margin-left: auto; margin-right: auto; }
+          .feature-title { text-align: center; }
+          .feature-desc { text-align: center; }
+        }
+      `}</style>
     </section>
   );
 };
