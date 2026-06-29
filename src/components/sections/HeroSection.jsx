@@ -172,6 +172,8 @@ const HeroSection = () => {
               border: '1px solid rgba(255,255,255,0.08)',
               borderRadius: '16px',
               width: 'fit-content',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
             }}
           >
             <div style={{ display: 'flex' }}>
