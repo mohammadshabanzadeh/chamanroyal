@@ -11,8 +11,8 @@ const Logo = ({ size = 'md', showText = true }) => {
       <svg width={s.icon} height={s.icon} viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#7ed957" />
-            <stop offset="100%" stopColor="#2d8a3e" />
+            <stop offset="0%" stopColor="#42a5f5" />
+            <stop offset="100%" stopColor="#1565c0" />
           </linearGradient>
           <linearGradient id="crownGrad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#e8c96a" />
@@ -23,35 +23,22 @@ const Logo = ({ size = 'md', showText = true }) => {
             <feMerge><feMergeNode in="coloredBlur" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
         </defs>
-
-        {/* Background Circle */}
         <circle cx="28" cy="28" r="27" fill="url(#logoGrad)" opacity="0.15" />
         <circle cx="28" cy="28" r="27" stroke="url(#logoGrad)" strokeWidth="1.5" fill="none" />
-
-        {/* Crown */}
-        <path
-          d="M14 22 L18 30 L28 18 L38 30 L42 22 L40 38 H16 L14 22Z"
-          fill="url(#crownGrad)"
-          filter="url(#glow)"
-        />
-
-        {/* Grass blades */}
+        <path d="M14 22 L18 30 L28 18 L38 30 L42 22 L40 38 H16 L14 22Z" fill="url(#crownGrad)" filter="url(#glow)" />
         <path d="M18 38 Q18 33 20 30 Q21 33 20 38" fill="url(#logoGrad)" />
         <path d="M23 38 Q22 31 25 27 Q27 31 25 38" fill="url(#logoGrad)" />
         <path d="M28 38 Q27 30 30 26 Q32 30 30 38" fill="url(#logoGrad)" />
         <path d="M33 38 Q33 31 36 27 Q37 31 36 38" fill="url(#logoGrad)" />
         <path d="M37 38 Q38 33 40 30 Q40 33 39 38" fill="url(#logoGrad)" />
-
-        {/* Ground line */}
         <rect x="13" y="38" width="30" height="2.5" rx="1.25" fill="url(#logoGrad)" opacity="0.7" />
       </svg>
 
       {showText && (
         <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1 }}>
           <span style={{
-            fontSize: s.font,
-            fontWeight: 800,
-            background: 'linear-gradient(135deg, #7ed957, #2d8a3e)',
+            fontSize: s.font, fontWeight: 800,
+            background: 'linear-gradient(135deg, #42a5f5, #1565c0)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',

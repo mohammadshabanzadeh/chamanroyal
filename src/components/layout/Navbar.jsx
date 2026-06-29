@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Moon, Sun } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Logo from '../ui/Logo';
 import { NAV_LINKS, CONTACT_INFO } from '../../constants';
+import { useTheme } from '../../context/ThemeContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { isDark, toggle } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -16,14 +18,24 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location.pathname]);
+  useEffect(() => { setIsOpen(false); }, [location.pathname]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
+
+  const navBg = scrolled
+    ? isDark
+      ? 'rgba(6,12,24,0.93)'
+      : 'rgba(248,250,255,0.93)'
+    : 'transparent';
+
+  const navBorder = scrolled
+    ? isDark
+      ? '1px solid rgba(96,180,255,0.1)'
+      : '1px solid rgba(21,101,192,0.12)'
+    : 'none';
 
   return (
     <>
@@ -32,35 +44,21 @@ const Navbar = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
-          position: 'fixed',
-          top: 0,
-          right: 0,
-          left: 0,
-          zIndex: 1000,
+          position: 'fixed', top: 0, right: 0, left: 0, zIndex: 1000,
           transition: 'all 0.4s ease',
-          background: scrolled
-            ? 'rgba(10, 26, 13, 0.92)'
-            : 'transparent',
+          background: navBg,
           backdropFilter: scrolled ? 'blur(20px)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(255,255,255,0.08)' : 'none',
-          boxShadow: scrolled ? '0 4px 32px rgba(0,0,0,0.4)' : 'none',
+          borderBottom: navBorder,
+          boxShadow: scrolled ? '0 4px 24px rgba(21,101,192,0.1)' : 'none',
         }}
       >
         <div className="container" style={{ padding: '0 24px' }}>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            height: '72px',
-          }}>
-            {/* Logo */}
-            <Link to="/">
-              <Logo size="md" />
-            </Link>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
+            <Link to="/"><Logo size="md" /></Link>
 
             {/* Desktop Nav */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }} className="desktop-nav">
-              {NAV_LINKS.map((link) => (
+              {NAV_LINKS.map(link => (
                 <Link
                   key={link.path}
                   to={link.path}
@@ -69,24 +67,20 @@ const Navbar = () => {
                     borderRadius: '999px',
                     fontSize: '0.95rem',
                     fontWeight: 500,
-                    color: location.pathname === link.path ? '#7ed957' : 'rgba(240,249,241,0.8)',
-                    background: location.pathname === link.path
-                      ? 'rgba(126, 217, 87, 0.12)'
-                      : 'transparent',
-                    border: location.pathname === link.path
-                      ? '1px solid rgba(126, 217, 87, 0.3)'
-                      : '1px solid transparent',
+                    color: location.pathname === link.path ? '#1976d2' : 'var(--text-secondary)',
+                    background: location.pathname === link.path ? 'rgba(21,101,192,0.1)' : 'transparent',
+                    border: location.pathname === link.path ? '1px solid rgba(21,101,192,0.25)' : '1px solid transparent',
                     transition: 'all 0.25s ease',
                   }}
                   onMouseEnter={e => {
                     if (location.pathname !== link.path) {
-                      e.currentTarget.style.color = '#7ed957';
-                      e.currentTarget.style.background = 'rgba(126,217,87,0.08)';
+                      e.currentTarget.style.color = '#1976d2';
+                      e.currentTarget.style.background = 'rgba(21,101,192,0.07)';
                     }
                   }}
                   onMouseLeave={e => {
                     if (location.pathname !== link.path) {
-                      e.currentTarget.style.color = 'rgba(240,249,241,0.8)';
+                      e.currentTarget.style.color = 'var(--text-secondary)';
                       e.currentTarget.style.background = 'transparent';
                     }
                   }}
@@ -96,8 +90,24 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* CTA Phone */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }} className="desktop-nav">
+            {/* Desktop actions */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }} className="desktop-nav">
+              {/* Dark mode toggle */}
+              <button
+                onClick={toggle}
+                style={{
+                  width: '40px', height: '40px', borderRadius: '10px',
+                  background: isDark ? 'rgba(96,180,255,0.1)' : 'rgba(21,101,192,0.08)',
+                  border: isDark ? '1px solid rgba(96,180,255,0.2)' : '1px solid rgba(21,101,192,0.15)',
+                  color: isDark ? '#60b4ff' : '#1565c0',
+                  cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  transition: 'all 0.25s ease',
+                }}
+                title={isDark ? 'حالت روشن' : 'حالت تاریک'}
+              >
+                {isDark ? <Sun size={18} /> : <Moon size={18} />}
+              </button>
+
               <a
                 href={`tel:${CONTACT_INFO.phone}`}
                 className="btn btn-primary"
@@ -113,14 +123,11 @@ const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="mobile-menu-btn"
               style={{
-                background: 'rgba(255,255,255,0.08)',
-                border: '1px solid rgba(255,255,255,0.15)',
-                color: 'white',
-                padding: '8px',
-                borderRadius: '10px',
-                cursor: 'pointer',
-                alignItems: 'center',
-                justifyContent: 'center',
+                background: isDark ? 'rgba(96,180,255,0.08)' : 'rgba(21,101,192,0.08)',
+                border: isDark ? '1px solid rgba(96,180,255,0.15)' : '1px solid rgba(21,101,192,0.15)',
+                color: 'var(--text-primary)',
+                padding: '8px', borderRadius: '10px', cursor: 'pointer',
+                alignItems: 'center', justifyContent: 'center',
               }}
             >
               {isOpen ? <X size={22} /> : <Menu size={22} />}
@@ -138,15 +145,11 @@ const Navbar = () => {
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.35, ease: 'easeInOut' }}
             style={{
-              position: 'fixed',
-              inset: 0,
-              zIndex: 999,
-              background: 'rgba(8, 20, 10, 0.97)',
+              position: 'fixed', inset: 0, zIndex: 999,
+              background: isDark ? 'rgba(6,12,24,0.97)' : 'rgba(240,247,255,0.97)',
               backdropFilter: 'blur(20px)',
-              display: 'flex',
-              flexDirection: 'column',
-              padding: '100px 32px 40px',
-              gap: '8px',
+              display: 'flex', flexDirection: 'column',
+              padding: '100px 32px 40px', gap: '8px',
             }}
           >
             {NAV_LINKS.map((link, i) => (
@@ -159,18 +162,12 @@ const Navbar = () => {
                 <Link
                   to={link.path}
                   style={{
-                    display: 'block',
-                    padding: '16px 20px',
-                    fontSize: '1.2rem',
-                    fontWeight: 600,
-                    color: location.pathname === link.path ? '#7ed957' : 'rgba(240,249,241,0.85)',
+                    display: 'block', padding: '16px 20px',
+                    fontSize: '1.2rem', fontWeight: 600,
+                    color: location.pathname === link.path ? '#1976d2' : 'var(--text-secondary)',
                     borderRadius: '14px',
-                    background: location.pathname === link.path
-                      ? 'rgba(126,217,87,0.1)'
-                      : 'transparent',
-                    borderRight: location.pathname === link.path
-                      ? '3px solid #7ed957'
-                      : '3px solid transparent',
+                    background: location.pathname === link.path ? 'rgba(21,101,192,0.1)' : 'transparent',
+                    borderRight: location.pathname === link.path ? '3px solid #1976d2' : '3px solid transparent',
                     transition: 'all 0.2s',
                   }}
                 >
@@ -178,6 +175,24 @@ const Navbar = () => {
                 </Link>
               </motion.div>
             ))}
+
+            <div style={{ marginTop: '16px', display: 'flex', gap: '12px', justifyContent: 'center' }}>
+              <button
+                onClick={toggle}
+                style={{
+                  padding: '12px 20px', borderRadius: '12px',
+                  background: isDark ? 'rgba(96,180,255,0.1)' : 'rgba(21,101,192,0.08)',
+                  border: isDark ? '1px solid rgba(96,180,255,0.2)' : '1px solid rgba(21,101,192,0.2)',
+                  color: isDark ? '#60b4ff' : '#1565c0',
+                  cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px',
+                  fontSize: '0.95rem', fontFamily: 'Vazirmatn, sans-serif', fontWeight: 600,
+                }}
+              >
+                {isDark ? <Sun size={18} /> : <Moon size={18} />}
+                {isDark ? 'حالت روشن' : 'حالت تاریک'}
+              </button>
+            </div>
+
             <div style={{ marginTop: 'auto' }}>
               <a
                 href={`tel:${CONTACT_INFO.phone}`}

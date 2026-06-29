@@ -13,9 +13,9 @@ const CtaSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
           style={{
-            background: 'linear-gradient(135deg, rgba(45,138,62,0.15) 0%, rgba(10,26,13,0.8) 50%, rgba(45,138,62,0.1) 100%)',
+            background: 'linear-gradient(135deg, rgba(21,101,192,0.12) 0%, var(--glass-bg) 50%, rgba(21,101,192,0.08) 100%)',
             backdropFilter: 'blur(20px)',
-            border: '1px solid rgba(45,138,62,0.25)',
+            border: '1px solid rgba(21,101,192,0.2)',
             borderRadius: '28px',
             padding: 'clamp(40px, 6vw, 80px)',
             textAlign: 'center',
@@ -23,25 +23,16 @@ const CtaSection = () => {
             overflow: 'hidden',
           }}
         >
-          {/* Decorative elements */}
           <div style={{
-            position: 'absolute',
-            top: '-40px',
-            right: '-40px',
-            width: '300px',
-            height: '300px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(45,138,62,0.2) 0%, transparent 70%)',
+            position: 'absolute', top: '-40px', right: '-40px',
+            width: '300px', height: '300px', borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(21,101,192,0.18) 0%, transparent 70%)',
             pointerEvents: 'none',
           }} />
           <div style={{
-            position: 'absolute',
-            bottom: '-40px',
-            left: '-40px',
-            width: '250px',
-            height: '250px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(126,217,87,0.1) 0%, transparent 70%)',
+            position: 'absolute', bottom: '-40px', left: '-40px',
+            width: '250px', height: '250px', borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(66,165,245,0.1) 0%, transparent 70%)',
             pointerEvents: 'none',
           }} />
 

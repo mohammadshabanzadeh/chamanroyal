@@ -25,26 +25,25 @@ const Contact = () => {
   ];
 
   const inputStyle = {
-    width: '100%',
-    padding: '14px 18px',
-    background: 'rgba(255,255,255,0.05)',
-    border: '1px solid rgba(255,255,255,0.1)',
+    width: '100%', padding: '14px 18px',
+    background: 'var(--glass-bg)',
+    border: '1px solid var(--glass-border)',
     borderRadius: '12px',
     color: 'var(--text-primary)',
-    fontSize: '0.95rem',
-    outline: 'none',
+    fontSize: '0.95rem', outline: 'none',
     transition: 'border-color 0.25s, box-shadow 0.25s',
     fontFamily: 'Vazirmatn, sans-serif',
     direction: 'rtl',
   };
 
+  const focusIn = e => { e.target.style.borderColor = 'rgba(21,101,192,0.5)'; e.target.style.boxShadow = '0 0 0 3px rgba(21,101,192,0.1)'; };
+  const focusOut = e => { e.target.style.borderColor = 'var(--glass-border)'; e.target.style.boxShadow = 'none'; };
+
   return (
     <>
-      {/* Header */}
       <section style={{
-        paddingTop: '130px',
-        paddingBottom: '60px',
-        background: 'linear-gradient(180deg, rgba(45,138,62,0.08) 0%, transparent 100%)',
+        paddingTop: '130px', paddingBottom: '60px',
+        background: 'linear-gradient(180deg, rgba(21,101,192,0.08) 0%, transparent 100%)',
         textAlign: 'center',
       }}>
         <div className="container">
@@ -62,23 +61,13 @@ const Contact = () => {
 
       <section className="section" style={{ background: 'var(--bg-primary)', paddingTop: '40px' }}>
         <div className="container">
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1.5fr',
-            gap: '40px',
-            alignItems: 'start',
-          }}
-          className="contact-grid"
-          >
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '40px', alignItems: 'start' }} className="contact-grid">
             {/* Contact Info */}
             <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <div style={{
                 padding: '36px',
-                background: 'rgba(255,255,255,0.04)',
-                backdropFilter: 'blur(16px)',
-                border: '1px solid rgba(255,255,255,0.08)',
-                borderRadius: '24px',
-                marginBottom: '24px',
+                background: 'var(--glass-bg)', backdropFilter: 'blur(16px)',
+                border: '1px solid var(--glass-border)', borderRadius: '24px', marginBottom: '24px',
               }}>
                 <h3 style={{ color: 'var(--text-primary)', fontWeight: 700, fontSize: '1.15rem', marginBottom: '28px' }}>
                   اطلاعات تماس
@@ -87,23 +76,18 @@ const Contact = () => {
                   {contactItems.map(({ icon: Icon, label, value, href }, i) => (
                     <div key={i} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
                       <div style={{
-                        width: '40px', height: '40px',
-                        borderRadius: '10px',
-                        background: 'rgba(45,138,62,0.15)',
-                        border: '1px solid rgba(45,138,62,0.25)',
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        flexShrink: 0,
+                        width: '40px', height: '40px', borderRadius: '10px',
+                        background: 'rgba(21,101,192,0.12)',
+                        border: '1px solid rgba(21,101,192,0.22)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
                       }}>
-                        <Icon size={16} color="#7ed957" />
+                        <Icon size={16} color="#42a5f5" />
                       </div>
                       <div>
                         <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginBottom: '2px' }}>{label}</div>
                         {href ? (
-                          <a href={href} style={{
-                            color: 'var(--text-secondary)', fontSize: '0.92rem',
-                            transition: 'color 0.2s',
-                          }}
-                            onMouseEnter={e => e.currentTarget.style.color = '#7ed957'}
+                          <a href={href} style={{ color: 'var(--text-secondary)', fontSize: '0.92rem', transition: 'color 0.2s' }}
+                            onMouseEnter={e => e.currentTarget.style.color = '#1976d2'}
                             onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}
                           >{value}</a>
                         ) : (
@@ -115,12 +99,10 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Social */}
               <div style={{
                 padding: '24px',
-                background: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.08)',
-                borderRadius: '20px',
+                background: 'var(--glass-bg)',
+                border: '1px solid var(--glass-border)', borderRadius: '20px',
               }}>
                 <h4 style={{ color: 'var(--text-primary)', fontWeight: 700, marginBottom: '16px', fontSize: '0.95rem' }}>
                   شبکه‌های اجتماعی
@@ -134,11 +116,10 @@ const Contact = () => {
                     <a key={label} href={href} aria-label={label}
                       style={{
                         width: '44px', height: '44px', borderRadius: '12px',
-                        background: 'rgba(255,255,255,0.06)',
-                        border: '1px solid rgba(255,255,255,0.1)',
+                        background: 'var(--glass-bg)',
+                        border: '1px solid var(--glass-border)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        color: 'var(--text-secondary)',
-                        transition: 'all 0.25s',
+                        color: 'var(--text-secondary)', transition: 'all 0.25s',
                       }}
                       onMouseEnter={e => {
                         e.currentTarget.style.color = color;
@@ -148,8 +129,8 @@ const Contact = () => {
                       }}
                       onMouseLeave={e => {
                         e.currentTarget.style.color = 'var(--text-secondary)';
-                        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
-                        e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
+                        e.currentTarget.style.borderColor = 'var(--glass-border)';
+                        e.currentTarget.style.background = 'var(--glass-bg)';
                         e.currentTarget.style.transform = 'none';
                       }}
                     >
@@ -164,10 +145,8 @@ const Contact = () => {
             <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
               <div style={{
                 padding: '40px',
-                background: 'rgba(255,255,255,0.04)',
-                backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255,255,255,0.08)',
-                borderRadius: '24px',
+                background: 'var(--glass-bg)', backdropFilter: 'blur(20px)',
+                border: '1px solid var(--glass-border)', borderRadius: '24px',
               }}>
                 <h3 style={{ color: 'var(--text-primary)', fontWeight: 700, fontSize: '1.2rem', marginBottom: '32px' }}>
                   ارسال پیام
@@ -175,17 +154,13 @@ const Contact = () => {
 
                 {sent && (
                   <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
                     style={{
                       padding: '14px 20px',
-                      background: 'rgba(45,138,62,0.15)',
-                      border: '1px solid rgba(45,138,62,0.3)',
-                      borderRadius: '12px',
-                      color: '#7ed957',
-                      marginBottom: '24px',
-                      fontSize: '0.95rem',
-                      textAlign: 'center',
+                      background: 'rgba(21,101,192,0.12)',
+                      border: '1px solid rgba(21,101,192,0.3)',
+                      borderRadius: '12px', color: '#1976d2',
+                      marginBottom: '24px', fontSize: '0.95rem', textAlign: 'center',
                     }}
                   >
                     ✓ پیام شما با موفقیت ارسال شد. به زودی با شما تماس می‌گیریم.
@@ -198,25 +173,17 @@ const Contact = () => {
                       <label style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '0.88rem', marginBottom: '8px' }}>
                         نام و نام خانوادگی *
                       </label>
-                      <input
-                        type="text" name="name" value={form.name} onChange={handleChange} required
-                        placeholder="مثال: علی رضایی"
-                        style={inputStyle}
-                        onFocus={e => { e.target.style.borderColor = 'rgba(126,217,87,0.4)'; e.target.style.boxShadow = '0 0 0 3px rgba(126,217,87,0.08)'; }}
-                        onBlur={e => { e.target.style.borderColor = 'rgba(255,255,255,0.1)'; e.target.style.boxShadow = 'none'; }}
-                      />
+                      <input type="text" name="name" value={form.name} onChange={handleChange} required
+                        placeholder="مثال: علی رضایی" style={inputStyle}
+                        onFocus={focusIn} onBlur={focusOut} />
                     </div>
                     <div>
                       <label style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '0.88rem', marginBottom: '8px' }}>
                         شماره تماس *
                       </label>
-                      <input
-                        type="tel" name="phone" value={form.phone} onChange={handleChange} required
-                        placeholder="۰۹۱۲..."
-                        style={inputStyle}
-                        onFocus={e => { e.target.style.borderColor = 'rgba(126,217,87,0.4)'; e.target.style.boxShadow = '0 0 0 3px rgba(126,217,87,0.08)'; }}
-                        onBlur={e => { e.target.style.borderColor = 'rgba(255,255,255,0.1)'; e.target.style.boxShadow = 'none'; }}
-                      />
+                      <input type="tel" name="phone" value={form.phone} onChange={handleChange} required
+                        placeholder="۰۹۱۲..." style={inputStyle}
+                        onFocus={focusIn} onBlur={focusOut} />
                     </div>
                   </div>
 
@@ -224,34 +191,24 @@ const Contact = () => {
                     <label style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '0.88rem', marginBottom: '8px' }}>
                       موضوع پیام
                     </label>
-                    <input
-                      type="text" name="subject" value={form.subject} onChange={handleChange}
-                      placeholder="استعلام قیمت چمن ورزشی"
-                      style={inputStyle}
-                      onFocus={e => { e.target.style.borderColor = 'rgba(126,217,87,0.4)'; e.target.style.boxShadow = '0 0 0 3px rgba(126,217,87,0.08)'; }}
-                      onBlur={e => { e.target.style.borderColor = 'rgba(255,255,255,0.1)'; e.target.style.boxShadow = 'none'; }}
-                    />
+                    <input type="text" name="subject" value={form.subject} onChange={handleChange}
+                      placeholder="استعلام قیمت چمن ورزشی" style={inputStyle}
+                      onFocus={focusIn} onBlur={focusOut} />
                   </div>
 
                   <div>
                     <label style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '0.88rem', marginBottom: '8px' }}>
                       پیام شما *
                     </label>
-                    <textarea
-                      name="message" value={form.message} onChange={handleChange} required
+                    <textarea name="message" value={form.message} onChange={handleChange} required
                       placeholder="توضیحات پروژه، متراژ موردنیاز، سوالات..."
                       rows={5}
                       style={{ ...inputStyle, resize: 'vertical', minHeight: '120px' }}
-                      onFocus={e => { e.target.style.borderColor = 'rgba(126,217,87,0.4)'; e.target.style.boxShadow = '0 0 0 3px rgba(126,217,87,0.08)'; }}
-                      onBlur={e => { e.target.style.borderColor = 'rgba(255,255,255,0.1)'; e.target.style.boxShadow = 'none'; }}
-                    />
+                      onFocus={focusIn} onBlur={focusOut} />
                   </div>
 
-                  <button
-                    type="submit"
-                    className="btn btn-primary"
-                    style={{ width: '100%', justifyContent: 'center', padding: '16px', fontSize: '1rem' }}
-                  >
+                  <button type="submit" className="btn btn-primary"
+                    style={{ width: '100%', justifyContent: 'center', padding: '16px', fontSize: '1rem' }}>
                     <Send size={18} />
                     ارسال پیام
                   </button>

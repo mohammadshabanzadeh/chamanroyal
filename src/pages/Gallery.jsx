@@ -14,21 +14,20 @@ const GalleryCard = ({ item, index }) => (
     transition={{ duration: 0.4, delay: index * 0.06 }}
     whileHover={{ y: -6 }}
     style={{
-      background: 'rgba(255,255,255,0.04)',
+      background: 'var(--glass-bg)',
       backdropFilter: 'blur(16px)',
-      border: '1px solid rgba(255,255,255,0.08)',
+      border: '1px solid var(--glass-border)',
       borderRadius: '20px',
       overflow: 'hidden',
       cursor: 'pointer',
       transition: 'border-color 0.3s',
     }}
-    onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(126,217,87,0.3)'}
-    onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'}
+    onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(21,101,192,0.35)'}
+    onMouseLeave={e => e.currentTarget.style.borderColor = 'var(--glass-border)'}
   >
-    {/* Image */}
     <div style={{
       height: '220px',
-      background: `linear-gradient(160deg, ${item.color}15, ${item.color}35)`,
+      background: 'linear-gradient(160deg, rgba(21,101,192,0.12), rgba(66,165,245,0.2))',
       position: 'relative',
       overflow: 'hidden',
     }}>
@@ -38,33 +37,25 @@ const GalleryCard = ({ item, index }) => (
           alt={item.title}
           loading="lazy"
           style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
+            position: 'absolute', inset: 0,
+            width: '100%', height: '100%',
             objectFit: 'cover',
             transition: 'transform 0.5s ease',
           }}
         />
       )}
       <div style={{
-        position: 'absolute',
-        inset: 0,
-        background: 'linear-gradient(to top, rgba(5,15,7,0.7) 0%, transparent 55%)',
+        position: 'absolute', inset: 0,
+        background: 'linear-gradient(to top, rgba(6,12,24,0.65) 0%, transparent 55%)',
       }} />
 
-      {/* Category tag */}
       <span style={{
-        position: 'absolute',
-        top: '14px',
-        right: '14px',
-        padding: '4px 12px',
-        borderRadius: '999px',
-        fontSize: '0.78rem',
-        fontWeight: 600,
-        background: `${item.color}25`,
-        border: `1px solid ${item.color}50`,
-        color: item.color,
+        position: 'absolute', top: '14px', right: '14px',
+        padding: '4px 12px', borderRadius: '999px',
+        fontSize: '0.78rem', fontWeight: 600,
+        background: 'rgba(21,101,192,0.25)',
+        border: '1px solid rgba(21,101,192,0.4)',
+        color: '#60b4ff',
         backdropFilter: 'blur(8px)',
       }}>
         {item.category}
@@ -94,7 +85,7 @@ const Gallery = () => {
       <section style={{
         paddingTop: '130px',
         paddingBottom: '60px',
-        background: 'linear-gradient(180deg, rgba(45,138,62,0.08) 0%, transparent 100%)',
+        background: 'linear-gradient(180deg, rgba(21,101,192,0.08) 0%, transparent 100%)',
         textAlign: 'center',
       }}>
         <div className="container">
@@ -112,25 +103,20 @@ const Gallery = () => {
 
       <section className="section" style={{ background: 'var(--bg-primary)', paddingTop: '40px' }}>
         <div className="container">
-          {/* Filter */}
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '48px' }}>
             {GALLERY_CATS.map(cat => (
               <button
                 key={cat}
                 onClick={() => setActivecat(cat)}
                 style={{
-                  padding: '10px 22px',
-                  borderRadius: '999px',
-                  fontSize: '0.9rem',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  fontFamily: 'Vazirmatn, sans-serif',
-                  transition: 'all 0.25s',
-                  border: '1px solid',
-                  background: activecat === cat ? 'linear-gradient(135deg, #2d8a3e, #1a5e2a)' : 'rgba(255,255,255,0.04)',
-                  borderColor: activecat === cat ? 'transparent' : 'rgba(255,255,255,0.1)',
+                  padding: '10px 22px', borderRadius: '999px',
+                  fontSize: '0.9rem', fontWeight: 600,
+                  cursor: 'pointer', fontFamily: 'Vazirmatn, sans-serif',
+                  transition: 'all 0.25s', border: '1px solid',
+                  background: activecat === cat ? 'linear-gradient(135deg, #1565c0, #0d47a1)' : 'var(--glass-bg)',
+                  borderColor: activecat === cat ? 'transparent' : 'var(--glass-border)',
                   color: activecat === cat ? 'white' : 'var(--text-secondary)',
-                  boxShadow: activecat === cat ? '0 4px 16px rgba(45,138,62,0.4)' : 'none',
+                  boxShadow: activecat === cat ? '0 4px 16px rgba(21,101,192,0.4)' : 'none',
                 }}
               >{cat}</button>
             ))}
