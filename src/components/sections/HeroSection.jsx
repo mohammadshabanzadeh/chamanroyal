@@ -163,8 +163,9 @@ const HeroSection = () => {
             className="hero-social-proof"
             style={{
               display: 'flex',
+              flexDirection: 'column',
               alignItems: 'center',
-              gap: '16px',
+              gap: '10px',
               marginTop: '48px',
               padding: '16px 24px',
               background: 'rgba(255,255,255,0.04)',
@@ -172,8 +173,6 @@ const HeroSection = () => {
               border: '1px solid rgba(255,255,255,0.08)',
               borderRadius: '16px',
               width: 'fit-content',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
             }}
           >
             <div style={{ display: 'flex' }}>
