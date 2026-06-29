@@ -64,7 +64,7 @@ const HeroSection = () => {
         }} />
       </div>
 
-      <div className="container" style={{ position: 'relative', zIndex: 1, padding: '120px 24px 80px' }}>
+      <div className="container" style={{ position: 'relative', zIndex: 1, padding: '120px 24px 160px' }}>
         <div style={{ maxWidth: '720px' }}>
           {/* Badge */}
           <motion.div
@@ -106,14 +106,16 @@ const HeroSection = () => {
               marginBottom: '24px',
             }}
           >
-            متخصص چمن مصنوعی{' '}
-            <span style={{
-              background: 'linear-gradient(135deg, #7ed957, #2d8a3e)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}>
-              فوتبال
+            <span style={{ whiteSpace: 'nowrap' }}>
+              متخصص چمن مصنوعی{' '}
+              <span style={{
+                background: 'linear-gradient(135deg, #7ed957, #2d8a3e)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}>
+                فوتبال
+              </span>
             </span>
             <br />
             با استاندارد FIFA
