@@ -208,7 +208,7 @@ const HeroSection = () => {
                 boxShadow: '0 32px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1)',
               }}>
                 <img
-                  src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900&q=85&auto=format&fit=crop"
+                  src="/images/turf-football-1.jpg"
                   alt="زمین فوتبال چمن مصنوعی"
                   style={{
                     width: '100%',
