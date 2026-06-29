@@ -195,11 +195,11 @@ const HeroSection = () => {
                 </div>
               ))}
             </div>
-            <div>
-              <div style={{ display: 'flex', gap: '2px', marginBottom: '2px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <div style={{ display: 'flex', gap: '2px', marginBottom: '2px', justifyContent: 'center' }}>
                 {[...Array(5)].map((_, i) => <Star key={i} size={12} fill="#c9a84c" color="#c9a84c" />)}
               </div>
-              <span style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
+              <span style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', textAlign: 'center' }}>
                 +۳۰۰۰ زمین فوتبال اجرا شده
               </span>
             </div>
