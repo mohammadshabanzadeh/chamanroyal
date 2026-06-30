@@ -5,15 +5,15 @@ const StatsSection = () => {
   return (
     <section style={{
       padding: '80px 0',
-      background: 'linear-gradient(135deg, rgba(21,101,192,0.1) 0%, rgba(6,12,24,0) 50%, rgba(21,101,192,0.07) 100%)',
+      background: 'linear-gradient(135deg, rgba(45,138,62,0.12) 0%, rgba(10,26,13,0) 50%, rgba(45,138,62,0.08) 100%)',
       position: 'relative',
       overflow: 'hidden',
     }}>
       <div style={{
         position: 'absolute',
         inset: 0,
-        backgroundImage: `radial-gradient(ellipse at 20% 50%, rgba(21,101,192,0.12) 0%, transparent 60%),
-          radial-gradient(ellipse at 80% 50%, rgba(66,165,245,0.08) 0%, transparent 60%)`,
+        backgroundImage: `radial-gradient(ellipse at 20% 50%, rgba(45,138,62,0.12) 0%, transparent 60%),
+          radial-gradient(ellipse at 80% 50%, rgba(126,217,87,0.08) 0%, transparent 60%)`,
       }} />
 
       <div className="container" style={{ position: 'relative' }}>
@@ -21,8 +21,8 @@ const StatsSection = () => {
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
           gap: '2px',
-          background: 'var(--glass-border)',
-          border: '1px solid var(--glass-border)',
+          background: 'rgba(255,255,255,0.04)',
+          border: '1px solid rgba(255,255,255,0.08)',
           borderRadius: '24px',
           overflow: 'hidden',
           backdropFilter: 'blur(16px)',
@@ -37,7 +37,7 @@ const StatsSection = () => {
               style={{
                 padding: '40px 24px',
                 textAlign: 'center',
-                background: 'var(--glass-bg)',
+                background: 'rgba(10,26,13,0.6)',
                 position: 'relative',
               }}
             >
@@ -48,13 +48,13 @@ const StatsSection = () => {
                   top: '20%',
                   bottom: '20%',
                   width: '1px',
-                  background: 'var(--glass-border)',
+                  background: 'rgba(255,255,255,0.08)',
                 }} />
               )}
               <div style={{
                 fontSize: 'clamp(2.2rem, 4vw, 3.2rem)',
                 fontWeight: 900,
-                background: 'linear-gradient(135deg, #42a5f5, #1565c0)',
+                background: 'linear-gradient(135deg, #7ed957, #2d8a3e)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',

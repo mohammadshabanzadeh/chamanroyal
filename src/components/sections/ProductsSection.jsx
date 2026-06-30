@@ -52,13 +52,13 @@ const ProductsSection = ({ featured = false }) => {
                   border: '1px solid',
                   fontFamily: 'Vazirmatn, sans-serif',
                   background: activeCategory === cat
-                    ? 'linear-gradient(135deg, #1565c0, #0d47a1)'
-                    : 'var(--glass-bg)',
+                    ? 'linear-gradient(135deg, #2d8a3e, #1a5e2a)'
+                    : 'rgba(255,255,255,0.04)',
                   borderColor: activeCategory === cat
                     ? 'transparent'
-                    : 'var(--glass-border)',
+                    : 'rgba(255,255,255,0.1)',
                   color: activeCategory === cat ? 'white' : 'var(--text-secondary)',
-                  boxShadow: activeCategory === cat ? '0 4px 16px rgba(21,101,192,0.4)' : 'none',
+                  boxShadow: activeCategory === cat ? '0 4px 16px rgba(45,138,62,0.4)' : 'none',
                 }}
               >
                 {cat}

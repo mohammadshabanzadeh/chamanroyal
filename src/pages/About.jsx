@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Award, Users, Target, TrendingUp } from 'lucide-react';
 import StatsSection from '../components/sections/StatsSection';
 import CtaSection from '../components/sections/CtaSection';
+import { FEATURES } from '../constants';
 import { Shield, Truck, Wrench, Leaf } from 'lucide-react';
 
 const iconMap = { Shield, Truck, Wrench, Leaf };
@@ -27,7 +28,7 @@ const About = () => {
       <section style={{
         paddingTop: '130px',
         paddingBottom: '80px',
-        background: 'linear-gradient(180deg, rgba(21,101,192,0.08) 0%, transparent 100%)',
+        background: 'linear-gradient(180deg, rgba(45,138,62,0.08) 0%, transparent 100%)',
       }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', alignItems: 'center' }}>
@@ -51,8 +52,8 @@ const About = () => {
               style={{
                 height: '400px',
                 borderRadius: '24px',
-                background: 'linear-gradient(135deg, rgba(21,101,192,0.12), rgba(66,165,245,0.08))',
-                border: '1px solid rgba(21,101,192,0.2)',
+                background: 'linear-gradient(135deg, rgba(45,138,62,0.15), rgba(126,217,87,0.08))',
+                border: '1px solid rgba(45,138,62,0.2)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -65,16 +66,16 @@ const About = () => {
                   <path
                     key={i}
                     d={`M${8 + i * 16} 400 Q${6 + i * 16} ${320 - Math.sin(i * 0.9) * 60} ${10 + i * 16} ${220 - Math.cos(i * 0.7) * 80}`}
-                    stroke="#1565c0"
+                    stroke="#2d8a3e"
                     strokeWidth="2.5"
                     fill="none"
-                    opacity={0.15 + (i % 4) * 0.06}
+                    opacity={0.2 + (i % 4) * 0.08}
                   />
                 ))}
-                <rect x="0" y="380" width="400" height="20" fill="#1565c0" opacity="0.12" />
-                <text x="200" y="200" textAnchor="middle" fill="#42a5f5" opacity="0.06"
+                <rect x="0" y="380" width="400" height="20" fill="#2d8a3e" opacity="0.15" />
+                <text x="200" y="200" textAnchor="middle" fill="#7ed957" opacity="0.06"
                   fontSize="100" fontWeight="900" fontFamily="Vazirmatn">۱۵+</text>
-                <text x="200" y="260" textAnchor="middle" fill="#42a5f5" opacity="0.12"
+                <text x="200" y="260" textAnchor="middle" fill="#7ed957" opacity="0.12"
                   fontSize="24" fontFamily="Vazirmatn">سال تجربه</text>
               </svg>
             </motion.div>
@@ -104,8 +105,8 @@ const About = () => {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 style={{
                   padding: '28px',
-                  background: 'var(--glass-bg)',
-                  border: '1px solid var(--glass-border)',
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.07)',
                   borderRadius: '18px',
                   textAlign: 'center',
                 }}
@@ -113,12 +114,12 @@ const About = () => {
                 <div style={{
                   width: '52px', height: '52px',
                   borderRadius: '14px',
-                  background: 'rgba(21,101,192,0.12)',
-                  border: '1px solid rgba(21,101,192,0.25)',
+                  background: 'rgba(45,138,62,0.15)',
+                  border: '1px solid rgba(45,138,62,0.25)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   margin: '0 auto 16px',
                 }}>
-                  <v.icon size={22} color="#42a5f5" />
+                  <v.icon size={22} color="#7ed957" />
                 </div>
                 <h3 style={{ color: 'var(--text-primary)', fontWeight: 700, marginBottom: '8px' }}>{v.title}</h3>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.7 }}>{v.desc}</p>
@@ -149,33 +150,33 @@ const About = () => {
                 whileHover={{ y: -4 }}
                 style={{
                   padding: '32px 24px',
-                  background: 'var(--glass-bg)',
-                  border: '1px solid var(--glass-border)',
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.08)',
                   borderRadius: '20px',
                   textAlign: 'center',
                   transition: 'border-color 0.3s',
                 }}
-                onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(21,101,192,0.3)'}
-                onMouseLeave={e => e.currentTarget.style.borderColor = 'var(--glass-border)'}
+                onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(126,217,87,0.25)'}
+                onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'}
               >
                 <div style={{
                   width: '72px', height: '72px',
                   borderRadius: '50%',
-                  background: 'linear-gradient(135deg, #1565c0, #0d47a1)',
+                  background: 'linear-gradient(135deg, #2d8a3e, #1a5e2a)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   margin: '0 auto 16px',
                   fontSize: '1.6rem', fontWeight: 800, color: 'white',
-                  boxShadow: '0 8px 24px rgba(21,101,192,0.3)',
+                  boxShadow: '0 8px 24px rgba(45,138,62,0.3)',
                 }}>
                   {member.name[0]}
                 </div>
                 <h3 style={{ color: 'var(--text-primary)', fontWeight: 700, marginBottom: '4px' }}>{member.name}</h3>
-                <p style={{ color: '#1976d2', fontSize: '0.88rem', fontWeight: 600, marginBottom: '8px' }}>{member.role}</p>
+                <p style={{ color: '#7ed957', fontSize: '0.88rem', fontWeight: 600, marginBottom: '8px' }}>{member.role}</p>
                 <span style={{
                   fontSize: '0.8rem', color: 'var(--text-muted)',
-                  background: 'rgba(21,101,192,0.07)',
+                  background: 'rgba(255,255,255,0.05)',
                   padding: '3px 12px', borderRadius: '999px',
-                  border: '1px solid rgba(21,101,192,0.12)',
+                  border: '1px solid rgba(255,255,255,0.08)',
                 }}>
                   {member.exp}
                 </span>

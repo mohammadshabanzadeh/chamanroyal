@@ -13,7 +13,7 @@ const FeaturesSection = () => {
         position: 'absolute',
         top: 0, left: 0, right: 0,
         height: '1px',
-        background: 'linear-gradient(90deg, transparent, rgba(21,101,192,0.4), transparent)',
+        background: 'linear-gradient(90deg, transparent, rgba(45,138,62,0.4), transparent)',
       }} />
 
       <div className="container">
@@ -51,11 +51,11 @@ const FeaturesSection = () => {
                   overflow: 'hidden',
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = 'rgba(21,101,192,0.3)';
-                  e.currentTarget.style.boxShadow = '0 16px 40px rgba(21,101,192,0.15)';
+                  e.currentTarget.style.borderColor = 'rgba(126,217,87,0.25)';
+                  e.currentTarget.style.boxShadow = '0 16px 40px rgba(0,0,0,0.3)';
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.borderColor = 'var(--glass-border)';
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)';
                   e.currentTarget.style.boxShadow = 'none';
                 }}
               >
@@ -66,7 +66,7 @@ const FeaturesSection = () => {
                   right: 0,
                   width: '80px',
                   height: '80px',
-                  background: 'radial-gradient(circle at top right, rgba(21,101,192,0.15), transparent)',
+                  background: 'radial-gradient(circle at top right, rgba(45,138,62,0.15), transparent)',
                   borderRadius: '0 20px 0 80px',
                 }} />
 
@@ -74,8 +74,8 @@ const FeaturesSection = () => {
                   width: '56px',
                   height: '56px',
                   borderRadius: '16px',
-                  background: 'linear-gradient(135deg, rgba(21,101,192,0.2), rgba(66,165,245,0.1))',
-                  border: '1px solid rgba(21,101,192,0.3)',
+                  background: 'linear-gradient(135deg, rgba(45,138,62,0.25), rgba(126,217,87,0.1))',
+                  border: '1px solid rgba(45,138,62,0.3)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -83,7 +83,7 @@ const FeaturesSection = () => {
                   marginLeft: 'auto',
                   marginRight: 'auto',
                 }}>
-                  {Icon && <Icon size={24} color="#42a5f5" />}
+                  {Icon && <Icon size={24} color="#7ed957" />}
                 </div>
 
                 <h3 className="feature-title" style={{ color: 'var(--text-primary)', fontWeight: 700, fontSize: '1.05rem', marginBottom: '10px', textAlign: 'center' }}>

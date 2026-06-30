@@ -9,7 +9,7 @@ const Products = () => {
       <section style={{
         paddingTop: '130px',
         paddingBottom: '60px',
-        background: 'linear-gradient(180deg, rgba(21,101,192,0.08) 0%, transparent 100%)',
+        background: 'linear-gradient(180deg, rgba(45,138,62,0.08) 0%, transparent 100%)',
         textAlign: 'center',
       }}>
         <div className="container">

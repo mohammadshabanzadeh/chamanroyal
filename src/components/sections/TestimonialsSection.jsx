@@ -37,8 +37,8 @@ const TestimonialsSection = () => {
                 overflow: 'hidden',
                 transition: 'border-color 0.3s',
               }}
-              onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(21,101,192,0.25)'}
-              onMouseLeave={e => e.currentTarget.style.borderColor = 'var(--glass-border)'}
+              onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(126,217,87,0.2)'}
+              onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'}
             >
               {/* Quote icon */}
               <div style={{
@@ -47,7 +47,7 @@ const TestimonialsSection = () => {
                 left: '20px',
                 opacity: 0.08,
               }}>
-                <Quote size={60} color="#42a5f5" />
+                <Quote size={60} color="#7ed957" />
               </div>
 
               {/* Stars */}
@@ -73,7 +73,7 @@ const TestimonialsSection = () => {
                   width: '44px',
                   height: '44px',
                   borderRadius: '50%',
-                  background: 'linear-gradient(135deg, #1565c0, #0d47a1)',
+                  background: 'linear-gradient(135deg, #2d8a3e, #1a5e2a)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
