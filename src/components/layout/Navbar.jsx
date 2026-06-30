@@ -33,25 +33,27 @@ const Navbar = () => {
         transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
           position: 'fixed',
-          top: 0,
-          right: 0,
-          left: 0,
+          top: '16px',
+          right: '24px',
+          left: '24px',
           zIndex: 1000,
-          transition: 'all 0.4s ease',
-          background: scrolled
-            ? 'rgba(10, 26, 13, 0.92)'
-            : 'transparent',
-          backdropFilter: scrolled ? 'blur(20px)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(255,255,255,0.08)' : 'none',
-          boxShadow: scrolled ? '0 4px 32px rgba(0,0,0,0.4)' : 'none',
         }}
       >
-        <div className="container" style={{ padding: '0 24px' }}>
+        <div style={{
+          background: 'rgba(10, 26, 13, 0.72)',
+          backdropFilter: 'blur(24px)',
+          WebkitBackdropFilter: 'blur(24px)',
+          border: '1px solid rgba(126,217,87,0.15)',
+          borderRadius: '20px',
+          boxShadow: '0 8px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06)',
+          transition: 'all 0.4s ease',
+          padding: '0 24px',
+        }}>
           <div style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            height: '72px',
+            height: '68px',
           }}>
             {/* Logo */}
             <Link to="/">
