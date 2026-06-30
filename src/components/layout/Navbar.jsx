@@ -34,12 +34,17 @@ const Navbar = () => {
         style={{
           position: 'fixed',
           top: '16px',
-          right: '24px',
-          left: '24px',
+          left: 0,
+          right: 0,
           zIndex: 1000,
+          display: 'flex',
+          justifyContent: 'center',
+          padding: '0 24px',
         }}
       >
         <div style={{
+          width: '100%',
+          maxWidth: '1280px',
           background: 'rgba(10, 26, 13, 0.72)',
           backdropFilter: 'blur(24px)',
           WebkitBackdropFilter: 'blur(24px)',
